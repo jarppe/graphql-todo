@@ -10,6 +10,7 @@
 
 (defn simple-fixture [db]
   (log/warn "applying simple-fixture")
+  (clean-db db)
   (mc/insert-batch db "todos" [{:_id "todo1"
                                 :date "2018-04-09T12:34:56.123"
                                 :user "user1"
