@@ -1,0 +1,7 @@
+---
+version: '3'
+services:
+  graphql-todo-mongodb:
+    ports:
+      - 27017:27017
+    image: mongo:3.6
