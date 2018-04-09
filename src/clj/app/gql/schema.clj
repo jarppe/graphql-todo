@@ -33,7 +33,17 @@
                       :args {:_id {:type ID}
                              :name {:type String}
                              :email {:type String}}
-                      :resolve :User/users}}})
+                      :resolve :User/users}}
+
+   :mutations '{:addUser {:type :User
+                          :args {:name {:type (non-null String)}
+                                 :email {:type (non-null String)}}
+                          :resolve :User/add-user}
+                :addToDo {:type :ToDo
+                          :args {:userId {:type (non-null ID)}
+                                 :tags {:type (list String)}
+                                 :message {:type (non-null String)}}
+                          :resolve :ToDo/add-todo}}})
 
 (def schema (-> schema-data
                 (gql.util/attach-resolvers resolvers/resolvers)
