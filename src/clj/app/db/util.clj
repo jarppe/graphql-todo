@@ -2,8 +2,8 @@
   (:require [monger.collection :as mc])
   (:import org.bson.types.ObjectId))
 
-(defn object-id ^ObjectId []
-  (ObjectId/get))
+(defn new-object-id []
+  (str (ObjectId/get)))
 
 (defn create [db coll]
   (when-not (mc/exists? db coll)
