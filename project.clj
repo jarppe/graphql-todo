@@ -7,6 +7,7 @@
                  ; Common stuff:
                  [org.clojure/core.async "0.4.474"]
                  [prismatic/schema "1.1.9"]
+                 [prismatic/plumbing "0.5.5"]
                  [potemkin "0.4.5"]
                  [metosin/potpuri "0.5.1"]
                  [clj-http "3.8.0"]
