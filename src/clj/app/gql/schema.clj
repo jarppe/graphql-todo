@@ -2,7 +2,8 @@
   (:require [com.walmartlabs.lacinia :as gql]
             [com.walmartlabs.lacinia.schema :as gql.schema]
             [com.walmartlabs.lacinia.util :as gql.util]
-            [app.gql.resolvers :as resolvers]))
+            [app.gql.resolvers.todos :as todos]
+            [app.gql.resolvers.users :as users]))
 
 (def schema-data
   {:objects '{:ToDo {:fields {:_id {:type ID}
@@ -46,7 +47,8 @@
                           :resolve :ToDo/add-todo}}})
 
 (def schema (-> schema-data
-                (gql.util/attach-resolvers resolvers/resolvers)
+                (gql.util/attach-resolvers (merge todos/resolvers
+                                                  users/resolvers))
                 (gql.schema/compile)))
 
 (comment
